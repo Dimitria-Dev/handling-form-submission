@@ -23,7 +23,7 @@ class GreetingTest {
 
     @Test
     void validDay() {
-        InvalidDateException exception = assertThrows(InvalidDateException.class, () -> greeting = new Greeting(4, 48, 2023));
+        InvalidDateException exception = assertThrows(InvalidDateException.class, () -> greeting = new Greeting(4, 50, 2023));
         assertEquals("The day entered must be between 1 - 31", exception.getMessage());
 
     }
