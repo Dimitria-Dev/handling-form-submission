@@ -14,7 +14,7 @@ public class Greeting {
     public Greeting(int month, int day, int year) throws InvalidDateException{
 
         //Throws custom InvalidDateException if the month is greater than 12
-        if(month > 12)
+        if(month > 1)
             throw new InvalidDateException("The month entered must be between 1 - 12");
         else
             this.month = month;
