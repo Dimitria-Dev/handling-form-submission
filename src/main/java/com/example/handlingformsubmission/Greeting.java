@@ -5,14 +5,12 @@ package com.example.handlingformsubmission;
 
 public class Greeting {
 
-    //attributes
     private long id;
     private String content;
     private int month;
     private int day;
     private int year;
 
-    //constructor
     public Greeting(int month, int day, int year) throws InvalidDateException{
 
         //Throws custom InvalidDateException if the month is greater than 12
@@ -33,9 +31,6 @@ public class Greeting {
         } else
             this.year = year;
     }
-
-
-    //getters and setters
 
     public long getId() {
         return id;
@@ -78,7 +73,6 @@ public class Greeting {
     }
 
 
-    //ToString method that prints the date the user entered
     public String toString(){
         return getMonth() + "/" + getDay() + "/" + getYear();
     }
