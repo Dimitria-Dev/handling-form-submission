@@ -18,10 +18,20 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image'){
+        stage('Build Docker Image') {
             steps {
                 script {
                     sh 'docker build -t dimitriadeveaux/form-automation .'
+                }
+            }
+        }
+        stage('Push Image to Docker Hub') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpw')]) {
+                    sh 'docker login -u dimitriad -p ${dockerhubpw}'
+                    }
+                    sh 'docker push dimitriadeveaux/form-automation'
                 }
             }
         }
