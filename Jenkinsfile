@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/Dimitria-Dev/handling-form-submission.git'
-                sh './mvnw clean compile'
+                sh './mvnw clean install'
             }
         }
         stage('Test'){
