@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Push Image to Docker Hub') {
             steps {
-                sh 'docker push dimitriad/docker-repo:form-automation'
+                sh 'docker push dimitriad/docker-repo:latest'
             }
         }
 
