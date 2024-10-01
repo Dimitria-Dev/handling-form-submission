@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub-usr-pwd')
+    }
     stages {
         stage('Build') {
             steps {
@@ -25,15 +28,16 @@ pipeline {
                 }
             }
         }
-        stage('Push Image to Docker Hub') {
+        stage('Login'){
             steps {
-                script {
-                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpw')]) {
-                    sh 'docker login -u dimitriad -p ${dockerhubpw}'
-                    }
-                    sh 'docker push dimitriad/docker-repo:form-automation'
-                }
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
+        stage('Push Image to Docker Hub') {
+            steps {
+                sh 'docker push dimitriad/docker-repo:form-automation'
+            }
+        }
+
     }
 }
