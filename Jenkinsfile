@@ -31,7 +31,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpw')]) {
                     sh 'docker login -u dimitriad -p ${dockerhubpw}'
                     }
-                    sh 'docker push dimitriadeveaux/form-automation'
+                    sh 'docker push dimitriad/docker-repo:form-automation'
                 }
             }
         }
