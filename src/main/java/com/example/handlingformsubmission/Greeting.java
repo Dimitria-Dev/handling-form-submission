@@ -27,7 +27,7 @@ public class Greeting {
 
         //Throws custom InvalidDateException if the year is greater than 2024
         if(year > 2024){
-            throw new InvalidDateException("The year must be less than 2024");
+            throw new InvalidDateException("The year must be or less than 2024");
         } else
             this.year = year;
     }
