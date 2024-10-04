@@ -1,5 +1,6 @@
 pipeline {
     agent any
+//     small change to confirm automation
 
     environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub-usr-pwd')
