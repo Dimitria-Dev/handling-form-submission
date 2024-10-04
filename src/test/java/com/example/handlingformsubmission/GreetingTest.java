@@ -23,8 +23,22 @@ class GreetingTest {
 
     @Test
     void validDay() {
-        InvalidDateException exception = assertThrows(InvalidDateException.class, () -> greeting = new Greeting(4, 50, 2023));
+        InvalidDateException exception = assertThrows(InvalidDateException.class, () -> greeting = new Greeting(4, 60, 2023));
         assertEquals("The day entered must be between 1 - 31", exception.getMessage());
+
+    }
+
+    @Test
+    void validMonth() {
+        InvalidDateException exception = assertThrows(InvalidDateException.class, () -> greeting = new Greeting(25, 30, 2023));
+        assertEquals("The month entered must be between 1 - 12", exception.getMessage());
+
+    }
+
+    @Test
+    void validYear() {
+        InvalidDateException exception = assertThrows(InvalidDateException.class, () -> greeting = new Greeting(12, 6, 2026));
+        assertEquals("The year must be less than 2024", exception.getMessage());
 
     }
 }
