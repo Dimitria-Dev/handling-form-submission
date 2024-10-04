@@ -13,7 +13,6 @@ class GreetingTest {
 
     }
 
-    //Validate Date
     @Test
     void checkValidDate() throws InvalidDateException {
         greeting = new Greeting(4, 12, 2023);
@@ -38,7 +37,7 @@ class GreetingTest {
 
     @Test
     void validYear() {
-        InvalidDateException exception = assertThrows(InvalidDateException.class, () -> greeting = new Greeting(12, 6, 2026));
+        InvalidDateException exception = assertThrows(InvalidDateException.class, () -> greeting = new Greeting(12, 6, 2028));
         assertEquals("The year must be less than 2024", exception.getMessage());
 
     }
